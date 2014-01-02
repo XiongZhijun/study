@@ -11,4 +11,7 @@ package org.herod.study.groovy
  */
 class User {
 
+	String name;
+	int age;
+	private Date createDate = new Date();
 }
