@@ -5,6 +5,7 @@ package org.herod.study;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -16,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
 
 	@RequestMapping("/add")
-	public String addUser(User user, Model model) {
-		System.out.println("Add " + user);
+	public String addUser(@ModelAttribute("user") User user, Model model) {
+		System.out.println("Add user: " + user);
 		model.addAttribute("user", user);
 		return "user.show";
 	}
