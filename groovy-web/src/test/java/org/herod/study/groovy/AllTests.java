@@ -21,6 +21,12 @@ public class AllTests extends TestSuite {
 		GroovyTestSuite gsuite = new GroovyTestSuite();
 		suite.addTestSuite(gsuite.compile(TEST_ROOT + "UserTest.groovy"));
 		suite.addTestSuite(gsuite.compile(TEST_ROOT + "GroovyMarkupTest.groovy"));
+		suite.addTestSuite(gsuite.compile(TEST_ROOT + "OperatorTest.groovy"));
+		suite.addTestSuite(gsuite.compile(TEST_ROOT + "ObjectTest.groovy"));
+		suite.addTestSuite(gsuite.compile(TEST_ROOT + "StringTest.groovy"));
+		suite.addTestSuite(gsuite.compile(TEST_ROOT + "CollectionBasedOperatorsTest.groovy"));
+		suite.addTestSuite(gsuite.compile(TEST_ROOT + "ObjectRelatedOperatorsTest.groovy"));
+		suite.addTestSuite(gsuite.compile(TEST_ROOT + "SwitchTest.groovy"));
 		return suite;
 	}
 }
