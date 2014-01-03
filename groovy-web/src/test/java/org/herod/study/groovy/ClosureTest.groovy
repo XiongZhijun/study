@@ -54,4 +54,19 @@ class ClosureTest extends GroovyTestCase {
 			p * e
 		});
 	}
+
+	void testDelegate() {
+		User user = new User(username:"lisi");
+		def c = {
+			assertEquals("lisi", username);
+			assertEquals("lisi", getUsername());
+		}
+		shouldFail(MissingPropertyException) { c(); }
+		c.delegate = user;
+		c();
+	}
+
+	class User {
+		def username;
+	}
 }
