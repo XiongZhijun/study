@@ -26,9 +26,24 @@ class ObjectTest extends GroovyTestCase {
 		o = """hello""";
 		assertEquals(String, o.class);
 	}
-	
+
 	void testRange() {
 		assertEquals(IntRange, (1..2).class);
 		assertTrue((1..2) instanceof Range);
+	}
+
+	void testNewUser() {
+		def user = new User(name:"zhangsan", age : 20);
+		assertEquals("zhangsan", user.name);
+		assertEquals(20, user.age);
+		
+		shouldFail(MissingFieldException) {
+			user = new User(name:"zhangsan", age : 20, sex:'M');
+		}
+	}
+
+	class User {
+		String name;
+		int age;
 	}
 }
