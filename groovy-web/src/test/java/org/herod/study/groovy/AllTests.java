@@ -4,6 +4,8 @@
  */
 package org.herod.study.groovy;
 
+import java.lang.reflect.Method;
+
 import groovy.util.GroovyTestSuite;
 import junit.framework.TestSuite;
 
@@ -15,18 +17,14 @@ import junit.framework.TestSuite;
 public class AllTests extends TestSuite {
 	private static final String TEST_ROOT = "src/test/java/org/herod/study/groovy/";
 
-	@SuppressWarnings("unchecked")
 	public static TestSuite suite() throws Exception {
 		TestSuite suite = new TestSuite();
 		GroovyTestSuite gsuite = new GroovyTestSuite();
-		suite.addTestSuite(gsuite.compile(TEST_ROOT + "UserTest.groovy"));
-		suite.addTestSuite(gsuite.compile(TEST_ROOT + "GroovyMarkupTest.groovy"));
-		suite.addTestSuite(gsuite.compile(TEST_ROOT + "OperatorTest.groovy"));
-		suite.addTestSuite(gsuite.compile(TEST_ROOT + "ObjectTest.groovy"));
-		suite.addTestSuite(gsuite.compile(TEST_ROOT + "StringTest.groovy"));
-		suite.addTestSuite(gsuite.compile(TEST_ROOT + "CollectionBasedOperatorsTest.groovy"));
-		suite.addTestSuite(gsuite.compile(TEST_ROOT + "ObjectRelatedOperatorsTest.groovy"));
-		suite.addTestSuite(gsuite.compile(TEST_ROOT + "SwitchTest.groovy"));
+		Class<?> clazz = gsuite.compile(TEST_ROOT + "TestClassesLoader.groovy");
+		Object loader = clazz.newInstance();
+		Method method = clazz.getMethod("loadAllGroovyTests", new Class<?>[] {
+				TestSuite.class, GroovyTestSuite.class, String.class });
+		method.invoke(loader, suite, gsuite, TEST_ROOT);
 		return suite;
 	}
 }
