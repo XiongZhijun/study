@@ -10,6 +10,7 @@ grails.project.source.level = 1.6
 //grails.project.fork = [
 //   run: [maxMemory:1024, minMemory:64, debug:false, maxPerm:256]
 //]
+grails.project.dependency.resolver = "maven" // or ivy
 
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
@@ -45,7 +46,7 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
-        runtime ":hibernate:$grailsVersion"
+        runtime ":hibernate:3.6.10.6"
         runtime ":jquery:1.8.3"
         runtime ":resources:1.2"
 
@@ -54,10 +55,12 @@ grails.project.dependency.resolution = {
         //runtime ":cached-resources:1.0"
         //runtime ":yui-minify-resources:0.1.5"
 
-        build ":tomcat:$grailsVersion"
+        build ":tomcat:7.0.47"
 
         runtime ":database-migration:1.3.2"
 
         compile ':cache:1.0.1'
+		
+		compile ':scaffolding:2.0.1'
     }
 }
