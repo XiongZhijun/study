@@ -1,0 +1,19 @@
+configruation {
+	file = 'hello'
+	size = 10
+}
+
+environments {
+	test {
+		configruation {
+			size = 100
+		}
+	}
+	
+	development {
+		configruation {
+			file = 'haha'
+		} 
+	}
+
+}
