@@ -19,7 +19,11 @@
 			<artifactId>commons-lang</artifactId>
 			<version>2.6</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>2.1.6</version>
+		</dependency>
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -42,6 +46,11 @@
 					<artifactId>commons-logging</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -131,12 +140,26 @@
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework-version}</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	<repositories>
 		<repository>
 			<id>spring-milestones</id>
 			<name>Spring Milestones</name>
 			<url>http://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>codehaus</id>
+			<name>codehaus repository</name>
+			<url>http://repository.codehaus.org/</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>

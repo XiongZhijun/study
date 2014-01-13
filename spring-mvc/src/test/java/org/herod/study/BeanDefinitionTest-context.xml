@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="service1" class="org.herod.study.BeanDefinitionTest.RemoteService">
+		<property name="serviceUrl" value="localhost" />
+		<property name="port" value="9090" />
+	</bean>
+	<bean id="absService" class="org.herod.study.BeanDefinitionTest.RemoteService"
+		abstract="true">
+		<constructor-arg name="serviceUrl" value="172.19.33.88" />
+	</bean>
+	<bean id="service2" parent="absService">
+		<property name="port" value="9191" />
+	</bean>
+
+	<bean
+		class="org.herod.study.BeanDefinitionTest.RemoteServiceBeanFactoryPostProcessor"></bean>
+</beans>

@@ -11,7 +11,7 @@ public class MemberTest {
 	@Test
 	public void testGetDeclaringClass() throws SecurityException,
 			NoSuchMethodException {
-		Member method1 = ClassA.class.getMethod("method1", Boolean.TYPE);
+		Member method1 = ClassA.class.getMethod("method1", Boolean.class);
 		assertEquals(ClassA.class, method1.getDeclaringClass());
 
 	}
