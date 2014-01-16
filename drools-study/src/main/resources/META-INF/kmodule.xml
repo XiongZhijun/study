@@ -2,9 +2,12 @@
 <kmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://jboss.org/kie/6.0.0/kmodule">
 
-
 	<kbase name="HouseOfDoomKB" packages="org.herod.study.drools">
 		<ksession name="HouseOfDoomKS" />
+	</kbase>
+
+	<kbase name="Applicant" packages="org.herod.study.drools">
+		<ksession name="ApplicantKS" default="true" type="stateless" />
 	</kbase>
 
 </kmodule>

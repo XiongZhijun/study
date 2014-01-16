@@ -1,0 +1,23 @@
+package org.herod.study.drools;
+
+import org.herod.study.drools.Applicant;
+import org.herod.study.drools.Application;
+
+dialect  "mvel"
+
+rule "Is of valid age"
+when
+    $b : Applicant( age < 18 )
+    $a : Application()     
+then
+	System.out.println("Applicant : " + $b.getName());
+    $a.setValid( false );
+end
+
+rule "Application was made this year"
+when
+    $a : Application(  )     
+then
+	System.out.println("Application rule execute.");
+    $a.setValid( false );
+end
