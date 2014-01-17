@@ -25,8 +25,8 @@ public class TimerTest extends DroolsBaseTest {
 	@Before
 	public void setUp() {
 		super.setUp();
-//		systemOutHelper.redirectOut();
-//		systemOutHelper.addFilter(new LoggerFilter());
+		systemOutHelper.redirectOut();
+		systemOutHelper.addFilter(new LoggerFilter());
 	}
 
 	@Test
@@ -39,9 +39,9 @@ public class TimerTest extends DroolsBaseTest {
 			};
 		}.start();
 		session.fireUntilHalt();
-//		Thread.sleep(5 * 1000);
+		Thread.sleep(5 * 1000);
 		assertEquals("", location.getItem());
-//		systemOutHelper.assertOutString("Haha......" + LINE_SEPARATOR);
+		systemOutHelper.assertOutString("Haha......" + LINE_SEPARATOR);
 	}
 
 	private static class LoggerFilter implements Filter {
