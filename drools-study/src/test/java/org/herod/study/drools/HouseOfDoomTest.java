@@ -5,8 +5,6 @@
 package org.herod.study.drools;
 
 import org.junit.Test;
-import org.kie.api.KieServices;
-import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 
 /**
@@ -14,12 +12,11 @@ import org.kie.api.runtime.KieSession;
  * @email hust.xzj@gmail.com
  * 
  */
-public class HouseOfDoomTest {
+public class HouseOfDoomTest extends DroolsBaseTest {
 
 	@Test
 	public void test() {
-		KieContainer kc = KieServices.Factory.get().getKieClasspathContainer();
-		KieSession ksession = kc.newKieSession("HouseOfDoomKS");
+		KieSession ksession = kieContainer.newKieSession("HouseOfDoomKS");
 
 		ksession.insert(new Location("Office", "House"));
 		ksession.insert(new Location("Kitchen", "House"));

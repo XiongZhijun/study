@@ -1,0 +1,21 @@
+package org.herod.study.drools.timer;
+import org.herod.study.drools.Location;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+dialect  "mvel"
+
+function boolean check() {
+	String name = Thread.currentThread().getName();
+	System.out.println("check : " + name );
+	return true;
+} 
+
+rule "Test"
+	timer(5s 1s)
+when
+    $location : Location("item";)
+then
+	System.out.println(new SimpleDateFormat("HH:mm:ss").format(new Date()) );
+end
+

@@ -9,5 +9,9 @@
 	<kbase name="Applicant" packages="org.herod.study.drools">
 		<ksession name="ApplicantKS" default="true" type="stateless" />
 	</kbase>
+	
+	<kbase name="TimerTest" packages="org.herod.study.drools.timer">
+		<ksession name="TimerTestKS" />
+	</kbase>
 
 </kmodule>

@@ -7,8 +7,6 @@ package org.herod.study.drools;
 import java.util.Arrays;
 
 import org.junit.Test;
-import org.kie.api.KieServices;
-import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.StatelessKieSession;
 
 /**
@@ -16,13 +14,11 @@ import org.kie.api.runtime.StatelessKieSession;
  * @email hust.xzj@gmail.com
  * 
  */
-public class ApplicantTest {
+public class ApplicantTest extends DroolsBaseTest {
 
 	@Test
 	public void test() {
-		KieServices kieServices = KieServices.Factory.get();
-		KieContainer container = kieServices.getKieClasspathContainer();
-		StatelessKieSession session = container.newStatelessKieSession();
+		StatelessKieSession session = kieContainer.newStatelessKieSession();
 		Applicant applicant1 = new Applicant("zhangsan", 15);
 		Applicant applicant2 = new Applicant("lisi", 16);
 		Application application = new Application();
